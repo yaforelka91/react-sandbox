@@ -1,0 +1,45 @@
+.form {
+    &__field {
+        margin-bottom: calc(var(--gs) * 2);
+    }
+
+    &__label {
+        display: block;
+    }
+
+    &__hint {
+        display: block;
+        font-size: 14px;
+        color: var(--cl-grey);
+        font-style: italic;
+    }
+
+    &__input {
+        width: 100%;
+        min-height: calc(var(--gs) * 5);
+        padding: var(--gs) calc(var(--gs) * 2);
+        border: 1px solid var(--cl-black);
+        color: var(--cl-black);
+        font-size: 16px;
+        line-height: calc(var(--gs) * 5 - var(--gs) * 2 - 2px);
+        background-color: transparent;
+        border-radius: 4px;
+
+        &:disabled {
+            border-color: var(--cl-grey);
+            color: var(--cl-grey);
+            /* Для Safari */
+            opacity: 1;
+            -webkit-text-fill-color: var(--cl-grey);
+        }
+
+        &::placeholder {
+            color: var(--cl-grey);
+            opacity: 1;
+        }
+
+        &:focus {
+            outline-offset: 1px;
+        }
+    }
+}

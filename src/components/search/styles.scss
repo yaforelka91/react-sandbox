@@ -1,0 +1,31 @@
+.search-form {
+    display: flex;
+    max-width: 480px;
+    margin: 0 auto calc(var(--gs) * 2);
+    
+    &__wrapper {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    &__reset {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: calc(var(--gs) * 5);
+        height: calc(var(--gs) * 5);
+    }
+
+    &__input {
+        padding-right: calc(var(--gs) * 6);
+        border-radius: 4px 0 0 4px;
+    }
+
+    &__confirm {
+        flex-shrink: 0;
+        border-radius: 0 4px 4px 0;
+    }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'focus-visible';
 import './index.css';
-import App from './App';
+import App from './components/app/app.jsx';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
