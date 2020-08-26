@@ -4,13 +4,9 @@ import { useState } from 'react';
 import Result from '../result/result';
 import './styles.scss';
 import { ReactComponent as Cross } from '../../images/icons/cross.svg';
+import {RAPIDAPI_REQUEST_HEADERS} from '../../keys.js';
 
 const RAPIDAPI_API_URL = 'https://recipe-puppy.p.rapidapi.com';
-
-const RAPIDAPI_REQUEST_HEADERS = {
-    'X-RapidAPI-Host': 'recipe-puppy.p.rapidapi.com',
-    'X-RapidAPI-Key': '75d8c28dbdmshb9ef2a564c288cbp1f8ac4jsn22dc7daa4301',
-};
 
 const Search = () => {
     const [recipe, setRecipe] = useState('');
