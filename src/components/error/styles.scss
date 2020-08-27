@@ -1,0 +1,14 @@
+.form__error {
+  position: relative;
+  display: block;
+  padding-left: calc(var(--gs) * 4);
+  color: var(--cl-red);
+  fill: var(--cl-red);
+  font-size: 16px;
+
+  &-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,68 @@
+.map {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    padding-bottom: 0;
+  }
+}
+
+.leaflet {
+  &-container {
+    min-height: 400px;
+    width: 100%;
+    flex-grow: 1;
+    font-family: 'PT Root UI', Arial, sans-serif;
+  }
+
+  &-popup {
+    &-content-wrapper {
+      border-radius: 4px;
+      color: var(--cl-global);
+    }
+  }
+}
+
+.marker-cluster {
+  div {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--cl-white);
+  }
+
+  &-small {
+    background-color: rgba(35, 64, 153, 0.6);
+
+    div {
+      background-color: var(--cl-blue);
+    }
+  }
+
+  &-medium {
+    background-color: rgba(252, 163, 17, 0.6);
+
+    div {
+      background-color: var(--cl-yellow);
+      color: var(--cl-black);
+    }
+  }
+
+  &-large {
+    background-color: rgba(214, 40, 40, 0.6);
+
+    div {
+      background-color: var(--cl-red);
+    }
+  }
+}
+
+.balloon {
+  font-size: 14px;
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cl-blue);
+  }
+}

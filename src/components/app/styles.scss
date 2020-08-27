@@ -1,0 +1,15 @@
+@import-normalize;
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 calc(var(--gs) * 5);
+
+  @media (--tablet-lg) {
+    padding: 0 calc(var(--gs) * 3);
+  }
+
+  @media (--tablet) {
+    padding: 0 calc(var(--gs) * 2);
+  }
+}
