@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import Error from '../error/error.jsx';
 import { regOneLetter, regOneDigit } from '../../utils/regex.js';
 import './styles.scss';
+import Breadcrumbs from '../breadcrumbs/breadcrumbs.jsx';
 
 const initialValues = {
   email: '',
@@ -39,6 +40,18 @@ const FocusError = () => {
 
 const Auth = () => (
   <div className="container">
+    <Breadcrumbs
+      crumbs={[
+        {
+          name: 'Home',
+          path: '/',
+        },
+        {
+          name: 'Auth',
+          path: '/auth',
+        },
+      ]}
+    />
     <h1>
       Привет, гость! Рады тебя видеть{' '}
       <span role="img" aria-label="Hi">

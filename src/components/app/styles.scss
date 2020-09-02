@@ -1,15 +1,23 @@
-@import-normalize;
+@import '../../styles/media.scss';
+
+.main {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 calc(var(--gs) * 5);
 
-  @media (--tablet-lg) {
+  @include media(tablet-lg) {
     padding: 0 calc(var(--gs) * 3);
   }
 
-  @media (--tablet) {
+  @include media(tablet) {
     padding: 0 calc(var(--gs) * 2);
   }
 }

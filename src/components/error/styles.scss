@@ -1,6 +1,7 @@
 .form__error {
   position: relative;
   display: block;
+  margin-top: calc(var(--gs) * 1);
   padding-left: calc(var(--gs) * 4);
   color: var(--cl-red);
   fill: var(--cl-red);

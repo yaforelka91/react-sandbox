@@ -1,20 +1,66 @@
-@custom-media --mobile (width <= 479px);
-@custom-media --mobile-min (width >= 480px);
-@custom-media --mobile-lg-diff (480px <= width <= 639px);
-@custom-media --mobile-lg (width <= 639px);
-@custom-media --mobile-lg-min (width >= 640px);
-@custom-media --tablet-diff (640px <= width <= 767px);
-@custom-media --tablet (width <= 767px);
-@custom-media --tablet-min (width >= 768px);
-@custom-media --tablet-lg-diff (768px <= width <= 1023px);
-@custom-media --tablet-lg (width <= 1023px);
-@custom-media --tablet-lg-min (width >= 1024px);
-@custom-media --desktop-diff (1024px <= width <= 1279px);
-@custom-media --desktop (width <= 1279px);
-@custom-media --desktop-min (width >= 1280px);
 @custom-media --desktop-lg-diff (1280px <= width <= 1599px);
 @custom-media --desktop-lg (width <= 1599px);
 @custom-media --desktop-lg-min (width >= 1600px);
 @custom-media --desktop-xl-diff (1600px <= width <= 1919px);
 @custom-media --desktop-xl (width <= 1919px);
 @custom-media --desktop-xl-min (width >= 1920px);
+
+@mixin media($size) {
+  @if $size == mobile {
+    @media (max-width: 479px) {
+      @content;
+    }
+  } @else if $size == mobile-min {
+    @media (min-width: 480px) {
+      @content;
+    }
+  } @else if $size == mobile-lg-diff {
+    @media (min-width: 480px) and (max-width: 639px) {
+      @content;
+    }
+  } @else if $size == mobile-lg {
+    @media (max-width: 639px) {
+      @content;
+    }
+  } @else if $size == mobile-lg-min {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $size == tablet-diff {
+    @media (min-width: 640px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == tablet-min {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size == tablet-lg-diff {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  } @else if $size == tablet-lg {
+    @media (max-width: 1023px) {
+      @content;
+    }
+  } @else if $size == tablet-lg-min {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $size == desktop-diff {
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (max-width: 1279px) {
+      @content;
+    }
+  } @else if $size == desktop-min {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+}

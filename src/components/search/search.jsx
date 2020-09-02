@@ -5,6 +5,7 @@ import Result from '../result/result';
 import './styles.scss';
 import { ReactComponent as Cross } from '../../images/icons/cross.svg';
 import { RAPIDAPI_REQUEST_HEADERS } from '../../keys.js';
+import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 
 const RAPIDAPI_API_URL = 'https://recipe-puppy.p.rapidapi.com';
 
@@ -14,6 +15,18 @@ const Search = () => {
 
   return (
     <div className="container">
+      <Breadcrumbs
+        crumbs={[
+          {
+            name: 'Home',
+            path: '/',
+          },
+          {
+            name: 'Search',
+            path: '/search',
+          },
+        ]}
+      />
       <h1>
         Для искателей{' '}
         <span role="img" aria-label="Search">
@@ -61,7 +74,7 @@ const Search = () => {
             }}
           />
           <button
-            className="search-form__reset"
+            className={`search-form__reset${recipe === '' ? ' is-hidden' : ''}`}
             type="button"
             onClick={() => {
               setRecipe('');

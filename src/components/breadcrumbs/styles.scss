@@ -1,0 +1,32 @@
+@import '../../styles/media.scss';
+
+.breadcrumbs {
+  display: block;
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    margin-right: calc(var(--gs) * 0.5);
+    padding-right: calc(var(--gs) * 1);
+
+    @include media(mobile) {
+      font-size: 14px;
+    }
+
+    &::after {
+      content: '/';
+      position: absolute;
+      right: -2px;
+      top: -1px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      padding-right: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}

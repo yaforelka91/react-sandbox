@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import './styles.scss';
 import pin from '../../images/icons/pin.svg';
+import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 
 const VISITED_COUNTRIES = [
   {
@@ -13,7 +14,7 @@ const VISITED_COUNTRIES = [
     year: [2008, 2010, 2011],
     country: 'Турция',
     coords: [39.056249, 35.302075],
-    description: 'В Турции мы были несколько раз! Там классная средиземноморская природа и улыбчиые люди.',
+    description: 'В Турции мы были несколько раз! Там классная средиземноморская природа и улыбчивые люди.',
   },
   {
     id: 2,
@@ -28,7 +29,7 @@ const VISITED_COUNTRIES = [
     country: 'Египет',
     coords: [26.112189, 29.90523],
     description:
-      'Египет нам запомнится красотами Красного моря: там красивые кораллы и морской окунь, готовый откусить палец',
+      'Египет нам запомнится красотами Красного моря: там потрясающие кораллы и морской окунь, готовый откусить палец',
   },
   {
     id: 4,
@@ -67,7 +68,7 @@ const VISITED_COUNTRIES = [
     country: 'Германия',
     coords: [51.228764, 10.551692],
     description:
-      'Кёльно и Дюссельдорф. Говорят, это идельная страна для меня. Всё по правилам, расписанию. Кругом немецкий автопром. Настолько чётко, что прям скучно.',
+      'Кёльн и Дюссельдорф. Говорят, это идельная страна для меня. Всё по правилам и расписанию. Кругом немецкий автопром. Настолько чётко, что прям скучно.',
   },
   {
     id: 9,
@@ -225,6 +226,18 @@ const Map = () => {
   return (
     <div className="map">
       <div className="container map__container">
+        <Breadcrumbs
+          crumbs={[
+            {
+              name: 'Home',
+              path: '/',
+            },
+            {
+              name: 'Map',
+              path: '/map',
+            },
+          ]}
+        />
         <h1>
           Hello, world (в хорошем смысле){' '}
           <span role="img" aria-label="Earth">
@@ -252,7 +265,7 @@ const Map = () => {
           <MarkerClusterGroup>
             {VISITED_COUNTRIES.map(country => (
               <Marker position={country.coords} icon={PIN_ICON} key={country.id}>
-                <Popup className="balloon">
+                <Popup className="balloon" maxWidth={300}>
                   <p className="balloon__title">
                     {country.country}{' '}
                     <span>{Array.isArray(country.year) ? country.year.join(', ') : country.year}</span>
