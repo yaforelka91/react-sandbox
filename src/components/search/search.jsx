@@ -18,11 +18,11 @@ const Search = () => {
       <Breadcrumbs
         crumbs={[
           {
-            name: 'Home',
+            name: 'Главная',
             path: '/',
           },
           {
-            name: 'Search',
+            name: 'Поиск',
             path: '/search',
           },
         ]}

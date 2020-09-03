@@ -43,11 +43,11 @@ const Auth = () => (
     <Breadcrumbs
       crumbs={[
         {
-          name: 'Home',
+          name: 'Главная',
           path: '/',
         },
         {
-          name: 'Auth',
+          name: 'Авторизация',
           path: '/auth',
         },
       ]}
@@ -64,7 +64,7 @@ const Auth = () => (
       используется связка{' '}
       <a href="https://formik.org/" target="_blank" rel="noopener noreferrer">
         Formik
-      </a>
+      </a>{' '}
       и{' '}
       <a href="https://github.com/jquense/yup" target="_blank" rel="noopener noreferrer">
         Yup
@@ -118,7 +118,7 @@ const Auth = () => (
           </div>
           <FocusError />
           <button className="btn" type="submit" disabled={isSubmitting}>
-            Submit
+            Отправить
           </button>
         </form>
       )}

@@ -7,7 +7,11 @@ import 'react-leaflet-markercluster/dist/styles.min.css';
 import './styles.scss';
 import pin from '../../images/icons/pin.svg';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
+const DEFAULT_LOCATION = [55.755814, 37.617635];
+const DEFAULT_ZOOM = 13;
 const VISITED_COUNTRIES = [
   {
     id: 1,
@@ -207,9 +211,6 @@ const VISITED_COUNTRIES = [
   },
 ];
 
-const DEFAULT_LOCATION = [55.755814, 37.617635];
-const DEFAULT_ZOOM = 13;
-
 const PIN_ICON = new L.Icon({
   iconUrl: pin,
   iconSize: [27, 39],
@@ -217,11 +218,18 @@ const PIN_ICON = new L.Icon({
 });
 
 const Map = () => {
+  const [visitedCountries, setVisitedCountries] = useState([]);
   const refMap = useRef(null);
 
   const onFeatureGroupAdd = e => {
     refMap.current.leafletElement.fitBounds(e.target.getBounds());
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVisitedCountries(VISITED_COUNTRIES);
+    }, 5000);
+  });
 
   return (
     <div className="map">
@@ -229,11 +237,11 @@ const Map = () => {
         <Breadcrumbs
           crumbs={[
             {
-              name: 'Home',
+              name: 'Главная',
               path: '/',
             },
             {
-              name: 'Map',
+              name: 'Карта',
               path: '/map',
             },
           ]}
@@ -261,21 +269,23 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
-        <FeatureGroup onAdd={onFeatureGroupAdd}>
-          <MarkerClusterGroup>
-            {VISITED_COUNTRIES.map(country => (
-              <Marker position={country.coords} icon={PIN_ICON} key={country.id}>
-                <Popup className="balloon" maxWidth={300}>
-                  <p className="balloon__title">
-                    {country.country}{' '}
-                    <span>{Array.isArray(country.year) ? country.year.join(', ') : country.year}</span>
-                  </p>
-                  <p className="balloon__text">{country.description}</p>
-                </Popup>
-              </Marker>
-            ))}
-          </MarkerClusterGroup>
-        </FeatureGroup>
+        {visitedCountries.length > 0 ? (
+          <FeatureGroup onAdd={onFeatureGroupAdd}>
+            <MarkerClusterGroup>
+              {visitedCountries.map(country => (
+                <Marker position={country.coords} icon={PIN_ICON} key={country.id}>
+                  <Popup className="balloon" maxWidth={300}>
+                    <p className="balloon__title">
+                      {country.country}{' '}
+                      <span>{Array.isArray(country.year) ? country.year.join(', ') : country.year}</span>
+                    </p>
+                    <p className="balloon__text">{country.description}</p>
+                  </Popup>
+                </Marker>
+              ))}
+            </MarkerClusterGroup>
+          </FeatureGroup>
+        ) : null}
         <ZoomControl position="topright" />
       </LeafletMap>
     </div>
